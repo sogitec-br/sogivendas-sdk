@@ -1,0 +1,38 @@
+{
+	"name": "sdk",
+	"$schema": "../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "sogivendas-sdk/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nx/js:tsc",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/sogivendas-sdk",
+				"tsConfig": "sogivendas-sdk/tsconfig.lib.json",
+				"packageJson": "sogivendas-sdk/package.json",
+				"main": "sogivendas-sdk/src/index.ts",
+				"assets": ["sogivendas-sdk/*.md"]
+			}
+		},
+		"publish": {
+			"command": "node tools/scripts/publish.mjs sdk {args.ver} {args.tag}",
+			"dependsOn": ["build"]
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["sogivendas-sdk/**/*.ts", "sogivendas-sdk/package.json"]
+			}
+		},
+		"test": {
+			"executor": "@nx/jest:jest",
+			"outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+			"options": {
+				"jestConfig": "sogivendas-sdk/jest.config.ts"
+			}
+		}
+	},
+	"tags": []
+}
