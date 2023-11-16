@@ -1,4 +1,27 @@
 {
 	"name": "@sogivendas-backend/sdk",
-	"version": "0.0.1"
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sogitec-br/sogivendas-sdk.git"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"tslib": "^2.3.0"
+	},
+	"description": "A simple npm package to demonstrate GitHub Package Registry",
+	"type": "commonjs",
+	"main": "./libs/sgt-sdk-beta/src/index.js",
+	"typings": "./libs/sgt-sdk-beta/src/index.d.ts",
+	"author": "Sogitec",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/sogitec-br/sogivendas-sdk/issues"
+	},
+	"homepage": "https://github.com/sogitec-br/sogivendas-sdk#readme",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	}
 }
